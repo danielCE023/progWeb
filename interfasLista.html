@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario</title>
+    <script>
+        inventario={
+            articulo:[
+                {clave: '0001', nombre: 'Articulo1', precio: '10.00', existencia: '20'
+                
+                }
+            ],
+
+            agregar(item){
+                this.articulo.push(item)
+            },
+            desplegarConsola(){
+            this.articulo.forEach((item)=>{
+                console.log(item)
+            }),
+            desplegarTabla(tbody N){
+                var htm=""
+                this.articulo.forEach((item)=>{
+                    htmt= <tr><td>${item.clave}</td>
+                })
+            }
+        },
+    }
+        
+        function agregarArticulo(){
+            inventario.agregar({
+                clave: (document.getElementById ("clave").value),
+                nombre: (document.getElementById("nombre").value),
+                precio: (document.getElementById("precio").value),
+                existencia: (document.getElementById("existencia").value),
+            });
+            inventario.desplegarConsola();
+            
+        };
+        
+        
+    </script>
+</head>
+<body>
+    <form>
+        <label> clave
+            <input type="text" id="clave"/>
+        </label>
+        <label> nombre
+            <input type="text" id="nombre"/>
+        </label>
+        <label> precio
+            <input type="text" id="precio"/>
+        </label>
+        <label> existencia
+            <input type="text" id="existencia"/>
+        </label>
+        <button type="button" onclick=" agregarArticulo()">agregar</button>
+    </form>
+    <table id="lista">
+        <thead>
+            <tr><th>clave</th>
+                <th>nombre</th>
+                <th>precio</th>
+                <th>existencia</th>
+            </tr>
+        </thead>
+        <tbody id="articulos">
+            <tr>
+                <td>001</td>
+                <td>Articulo1</td>
+                <td>10.0</td>
+                <td>20</td>
+            </tr>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+    
+</body>
+</html>
