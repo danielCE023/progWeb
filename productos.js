@@ -1,0 +1,6 @@
+inventario={
+    articulos:[
+
+    ],
+    
+}

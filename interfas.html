@@ -5,24 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi app</title>
 
-    <script src="app.js"></script>
+    <script src="app.js" defer></script>
+
 </head>
 <body>
     <form>
         <h1>Alumno</h1>
-        <label for="matricula">
-            <input type="text" id="matricula"/>
-        </label>
-        <label for="nombre">
-            <input type="text" id="nombre"/>
-        </label>
-        <label for="paterno">
-            <input type="text" id="appaterno"/>
-        </label>
-        <label for="materno">
-            <input type="text" id="apmaterno"/>
-        </label>
-        <button type="button" onclick="desplegar()" >Desplegar</button>
+        <label for="matricula">Matrícula</label>
+        <input type="text" id="matricula"/>
+
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre"/>
+
+        <label for="appaterno">Apellido paterno</label>
+        <input type="text" id="appaterno"/>
+
+        <label for="apmaterno">Apellido materno</label>
+        <input type="text" id="apmaterno"/>
+
+        <button type="button" onclick="desplegar()">Desplegar</button>
+
     </form>
 
     <div id="display">

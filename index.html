@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi APP</title>
+    <style>
+        .toolbar {
+            display: inline;
+        }
+        table {
+            width: 100%;
+        }
+        .tr-head{
+            border-width: 1px;
+        }
+        .tr-head th {
+            background-color: aquamarine;
+            border-width: 1px;
+            border-color: rgb(0, 10, 10);
+            padding: 5px;
+        }
+        .tr-body{
+            border-width: 1px;
+        }
+
+        td{
+            background-color: rgb(197, 230, 219);
+            border-width: 3px;
+            border-color: rgb(0, 10, 10);
+            padding: 5px;
+            text-align: center;
+        }
+        .col-50 {
+            width: 50%;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        
+        inventario = {
+            articulos: [
+                {
+                    clave: "170",
+                    nombre: "papel",
+                    precio: 23.24,
+                    existencia: 34,
+                }
+            ],
+            agregar(item){
+                this.articulos.push(item)
+            },
+            desplegarConsola(){
+                this.articulos.forEach((item)=>{
+                    console.log(item)
+                });
+            },
+            desplegarTabla(tbodyN){
+               var html ='';
+               this.articulos.forEach((item)=>{
+                tbodyN.insertRow(-1).innerHTML = `
+                <tr>
+                        <td>${item.clave}</td>
+                        <td>${item.nombre}</td>
+                        <td>${item.precio}</td>
+                        <td>${item.existencia}</td>
+                </tr>`;
+                });
+
+                //tbodyN.innerHTML(html);
+
+            },
+            agregarTR(tBody,item){
+                tBody.insertRow(-1).innerHTML = `
+                <tr>
+                        <td>${item.clave}</td>
+                        <td>${item.nombre}</td>
+                        <td>${item.precio}</td>
+                        <td>${item.existencia}</td>
+                </tr>`;
+            },
+            limpiarTabla(tBody){
+                tBody.innerHTML = ``;
+            }
+        };
+
+        function agregarArticulo ( ) {
+            /* inventario.agregar({
+                clave: (document.getElementById("clave").value),
+                nombre: (document.getElementById("nombre").value),
+                precio: (document.getElementById("precio").value),
+                existencia: (document.getElementById("existencia").value),
+            }); */
+            let objeto = {
+                clave: (document.getElementById("clave").value),
+                nombre: (document.getElementById("nombre").value),
+                precio: (document.getElementById("precio").value),
+                existencia: (document.getElementById("existencia").value),
+            };
+            inventario.agregar(objeto);
+            inventario.desplegarConsola();
+            //inventario.desplegarTabla(document.getElementById("articulos")); 
+            inventario.agregarTR(document.getElementById("articulos"), objeto);   
+        };
+        
+        function limpiarTabla(){
+            inventario.limpiarTabla(document.getElementById("articulos"));
+
+        }
+        function desplegarTabla(){
+
+            inventario.desplegarTabla(document.getElementById("articulos"));
+        }
+    </script>
+</head>
+<body class="col-50">
+    <form>
+        <label>Clave
+            <input type="text" id="clave" />
+        </label>
+        <label>Nombre
+            <input type="text" id="nombre"/>
+        </label>
+        <label>Precio
+            <input type="text" id="precio"/>
+        </label>
+        <label>Existencia
+            <input type="text" id="existencia"/>
+        </label>
+        <label>
+            <button type="button" id="giardar" onclick="agregarArticulo()">Agregar</button>
+        </label>
+        <label>
+            <button type="button" id="giardar" onclick="limpiarTabla()">limpiar Tabla</button>
+        </label>
+        <label>
+            <button type="button" id="giardar" onclick="desplegarTabla()">desplegar Tabla</button>
+        </label>
+    </form>
+<br>
+    <table id="lista">
+        <thead>
+            <tr class="tr-head">
+                <th>Clave</th><th>Nombre</th><th>Precio</th><th>Existencia</th><th>Subtotal(P*E)</th>
+            </tr>
+        </thead>
+        <tbody id="articulos">
+            <tr>
+                <td> </td><td> </td><td> </td><td> </td> <td></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            
+        </tfoot>
+    </table>
+</body>
+</html>

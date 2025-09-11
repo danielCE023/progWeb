@@ -56,8 +56,15 @@ Alumno.getDomicilio = function(){
 
 //mate1= Alumno.idEscolar.materias[1]
 
-function desplegar(){
-    console.log("hola")
-    disp = document.getElementById("display");
-    disp.innerHtml = Alumno.getDomicilio(Alumno);
+function desplegar() {
+    let matricula = document.getElementById("matricula").value;
+    let nombre = document.getElementById("nombre").value;
+    let paterno = document.getElementById("appaterno").value;
+    let materno = document.getElementById("apmaterno").value;
+
+    let display = document.getElementById("display");
+    display.innerHTML = `
+        <p><strong>Matrícula:</strong> ${matricula}</p>
+        <p><strong>Nombre:</strong> ${nombre} ${paterno} ${materno}</p>
+    `;
 }
