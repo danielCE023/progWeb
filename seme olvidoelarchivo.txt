@@ -1,0 +1,60 @@
+CHALE
+
+agregar(item){
+    articulos.push(item);
+},
+agregarTR(tbody,item){
+    tbody.insertRow(-1)-innerHTML='
+    <tr><td>${item.clave}</td>
+    //aqui van los demas
+    </tr>
+    ';
+
+}
+
+function mostrarFilas(){
+    inventario.mostrarFilas(document.getElementById("tbDatos"));
+}
+function limpiarTabla(){
+    inventario.limpiarTabla(document.getElementById("tbDatos"),r);
+}
+function eliminarFila(){
+    inventario|(document.getElementById("tbDatos"),r);
+}
+function desplegarTabla(){
+    inventario.mostrarTRs(document.getElementById("tbDatos"));
+}
+
+//Agregar Estilos
+
+<style>
+    .toolbar {
+        display: inline;
+    }
+    table {
+        width: 100%;
+    }
+    .tr-head {
+        border-width: 1px;
+    }
+    .tr-head th {
+        background-color: aquamarine
+        border-width: 1px
+        borde-color: rgb(0,10,10);
+        padding: 5px;
+    }
+    tr-body {
+        border-width: 1px;
+    }
+    td{
+        background-color: rgb(197,230,219);
+        borde-width: 3px;
+        border-color: rgb(0,10,10);
+        padding: 5px;
+        text-align: center:
+    }
+    .col-50 {
+        width: 50%;
+        padding: 10px;
+    }
+</style>
